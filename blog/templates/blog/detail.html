@@ -1,0 +1,19 @@
+{% extends 'blog/base.html' %}
+
+{% block white %}
+        {% if post.photo %}
+        <img src="{{ post.photo.url }}" alt="{{ post.title }}">
+        {% endif %}
+    <div class="">
+
+
+        <div class=" align-self-start col-9" >
+            <h4>{{ post.title }}</h4>
+            <p class="text-end text-sm">Дата: {{p.updated_at|date:"d-m-Y"}}</p>
+            <hr>
+            <p>{{ post.content }}</p>
+        </div>
+    </div><br>
+{% endblock %}
+
+

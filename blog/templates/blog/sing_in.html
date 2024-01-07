@@ -1,0 +1,9 @@
+{% extends 'blog/user.html' %}
+
+{% block tabs %}
+    <h2 class="active">Войти</h2>
+    <a href="{% url 'register' %}"> <h2 class="inactive underlineHover">Регистрация </h2></a>
+{% endblock %}
+{% block button %}
+    <button type="submit" class="fadeIn fourth">Войти</button>
+{% endblock %}

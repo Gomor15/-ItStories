@@ -1,0 +1,55 @@
+<!doctype html>
+{% load static %}
+<html lang="ru" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{{ title }}</title>
+    <link type="text/css" href="{% static 'blog/css/user.css' %}" rel="stylesheet" />
+
+</head>
+<body>
+<div class="wrapper fadeInDown">
+  <div id="formContent">
+    <!-- Tabs Titles -->
+    {% block tabs %}
+    {% endblock %}
+
+    <!-- Icon -->
+    <div class="fadeIn first">
+      <img src="{% static 'image/default.png'%}" id="icon" alt="User Icon" />
+    </div>
+
+    <!-- Login Form -->
+    <form method="post">
+        {% csrf_token %}
+        <div class="form-error">{{ form.non_field_errors }}</div>
+
+        {% for f in form %}
+            <p>
+            <label class="fadeIn third" for="{{ f.id_for_label }}">{{f.label}}: </label>
+            <input type="{{ f.field.widget.input_type }}"
+                   name="{{ f.name }}"
+                   class="fadeIn third"
+                   id="{{ f.id_for_label }}"
+                   value="{{ f.value|default:'' }}"
+                   {% if f.field.required %} required {% endif %}>
+            </p>
+            <div class="fadeIn second">{{ f.errors }}</div>
+        {% endfor %}
+        {% block button %}
+        {% endblock %}
+    </form>
+
+    <!-- Remind Passowrd -->
+    <div id="formFooter">
+      <a class="underlineHover" href="{% url 'about' %}">Вернутся на главную?</a>
+    </div>
+
+  </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet"  href="style2.css">
+    <title>ItWay  </title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <style>
+        .navbar-toggler {outline: none !important;}
+        .navbar-toggler:hover {background: #cfcccc; }
+        .card {width: 350px; }
+        #h1 {text-align: center;}
+        footer {
+            color: #d4eeef;
+            text-align: center;
+        }
+        .mb3 {margin-bottom: 40px;}
+        .navbar-toggler {outline: none !important;}
+        .navbar-toggler:hover {background: #cfcccc; }
+        .card {width: 350px; }
+        #h1 {text-align: center;}
+        footer {
+            color: #d4eeef;
+            text-align: center;
+        }
+        .mb3 {margin-bottom: 40px;}
+    </style>
+</head>
+<body>
+
+<header>
+
+    <div class="bg-light collapse" id="header">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-8 col-md-7 py-4">
+                    <h3> Про наш проект </h3>
+                    <p class="text-muted">ITStories - это не просто платформа для публикации историй, это целое сообщество, где каждая история имеет свое значение.
+                    Мы стремимся вдохновлять, поддерживать и соединять людей через общий интерес к технологиям.
+                    Здесь вы найдете разнообразие историй: от первых шагов в мире программирования до профессиональных достижений в области IT.
+                    Присоединяйтесь к ITStories, делитесь своим опытом, обретайте новые знания и вместе строим будущее IT-сообщества!</p>
+                </div>
+                <div class="col-sm-4 col-md-5 py-4">
+                    <h4>Наши контакты</h4>
+                    <ul class="list-group">
+                        <li><a href="https://vk.com/" class="text-muted contacks">ВК</a></li>
+                        <li><a href="https://habr.com/ru/news/402101/" class="text-muted contacks">LinkedIn</a></li>
+                        <li><a href="https://web.telegram.org/" class="text-muted contacks">Telegram</a></li>
+                    </ul>
+                </div>
+            </div>
+            {% if user.is_authenticated %}
+              Привет, {{ user.username }}!
+              <a href="{% url 'logout' %}"><button class="btn btn-primary">Выйти</button></a>
+            {% else %}
+              Добро пожаловать, гость!
+              <a href="{% url 'login' %}"><button class="btn btn-primary">Войти</button></a>
+            {% endif %}
+        </div>
+    </div>
+    <div class="navbar navbar-light bg-light shadow-sm">
+        <div class="container d-flex justify-content-between">
+            <h1><a href="#" class="navbar-brand "><b>ItStories</b></a></h1>
+            <button type="button" class="navbar-toggler collapsed" data-bs-toggle="collapse"
+                    data-bs-target="#header">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </div>
+    </div>
+    <div class="jumbotron p-4 bg-dark text-white">
+        <div class="container">
+            <div class="row">
+                <div class=" text-center">
+                    <h1 class="display-3">Дайте денег</h1>
+                    <p>Дорогие Донатики, если не бросите нам свои доллары, наш виртуальный хомяк, который крутится в колесе, умрет от голода!
+                        А мы, в знак протеста, перестанем платить элементы нашей виртуальной жене.
+                        Вам не хочется, чтобы наш хомяк стал жертвой своей голодной страсти к IT, верно?
+                        Скорее жмите "Поддержать Нас" и спасайте не только нас, но и нашего кибер-домашнего любимца! 🤖🍕"</p>
+                    <a href="https://www.banki.ru/microloans/catalogue/new_best/?utm_medium=cpc&utm_source=yandex&utm_campaign=90345548&utm_term=микро%20кредит&utm_content=__v3%7C%7C14568057633%7C%7C45927272274%7C%7Cмикро%20кредит%7C%7C1%7C%7Cpremium%7C%7Cnone%7C%7Csearch%7C%7Cno%7C%7C90345548%7C%7C5237007487&source=y_cpc_90345548_14568057633_45927272274&key=микро%20кредит&block=premium&pos=1&region_name=Иваново&region=5&yclid=16875937838878949375" class="btn btn-warning">Поддержать Нас</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container  md-5 mt-2 ">
+        <h1 id="h1">Функции ItStories</h1>
+        <div class=" d-flex flex-wrap justify-content-between ">
+
+            <div class="card mb3" >
+                <img src="{% static 'img/ItStories_1.png'%}" alt="ItWay" class="card-img-top">
+                <div class="card-body">
+                    <h5 class="card-title">Регистрация и Вход в профиль
+                    </h5>
+                    <p class="card-text">Чтобы писать комментарии и рассказать свою истории нужено зайти в ваш профиль </p>
+                    <a href="{% url 'login' %}" class="btn btn-primary">Перейти к профилю</a>
+                </div>
+        </div>
+            <div class="card mb3" >
+                <img src="{% static 'img/ItStories_1.png'%}" alt="ItStories" class="card-img-top">
+                <div class="card-body">
+                    <h5 class="card-title">Главная страница
+                    </h5>
+                    <p class="card-text">На ней вы можете узнать о нашем сайте побольше </p>
+                    <a href="{% url 'home' %}" class="btn btn-primary">Перейти</a>
+                </div>
+        </div>
+            <div class="card mb3" >
+                <img src="{% static 'img/ItStories_2.png'%}" alt="ItWay" class="card-img-top">
+                <div class="card-body">
+                    <h5 class="card-title">Расказать о своей истории
+                    </h5>
+                    <p class="card-text">В этом разделе вы можете рассказать о своей истории </p>
+                    <a href="{% url 'add_page' %}" class="btn btn-primary">Рассказать</a>
+                </div>
+        </div>
+            <div class="card mb3" >
+                <img src="{% static 'img/ItStories_3.png'%}" alt="ItWay" class="card-img-top">
+                <div class="card-body">
+                    <h5 class="card-title">Форумы и Группы
+                    </h5>
+                    <p class="card-text">Предоставляет площадку для создания тематических форумов и групп для обсуждения конкретных тем в IT-сфере </p>
+                    <a href="#" data-bs-toggle="modal" data-bs-target="#myModal" class="btn btn-primary">Перейти</a>
+                </div>
+        </div>
+            <div class="card mb3" >
+                <img src="{% static 'img/ItStories_4.png'%}" alt="ItWay" class="card-img-top">
+                <div class="card-body">
+                    <h5 class="card-title">Поиск и Фильтрация
+                    </h5>
+                    <p class="card-text">Обеспечивает пользователей инструментами для поиска конкретных историй, тем или авторов. </p>
+                    <a href="#" data-bs-toggle="modal" data-bs-target="#myModal" class="btn btn-primary">Перейти</a>
+                </div>
+        </div>
+            <div class="card mb3" >
+                <img src="{% static 'img/ItStories_5.png'%}" alt="ItWay" class="card-img-top">
+                <div class="card-body">
+                    <h5 class="card-title">Поддержка проекта
+                    </h5>
+                    <p class="card-text">Здесь вы можете купить рекламу и поддержать проект  </p>
+                    <a href="#" data-bs-toggle="modal" data-bs-target="#myModal" class="btn btn-primary">Перейти</a>
+                </div>
+        </div>
+        </div>
+    </div>
+    <footer class="bg-dark" >
+        <p>Создатель: Алексей Бутенёв </p>
+        <p>Дата последнего обновления: 21.10.2023 <i class="fas fa-star"></i>
+ </p>
+    </footer>
+
+</header>
+
+<div>
+    <div class="container ">
+        <div class="modal fade" id="myModal">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title">Ошибка</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
+              </div>
+              <div class="modal-body">
+                <p>К сожалению эта функция на сайте ещё в разработке, но скоро она будет готова</p>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
+                <button type="button" class="btn btn-primary">Попробовать ёщё раз</button>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</body>
+</html>

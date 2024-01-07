@@ -1,0 +1,23 @@
+{% extends 'blog/base.html' %}
+
+{% block white %}
+    {% for p in posts %}
+    <div class=" d-flex justify-content-between block border stories mb_1 bg-dark text-light ">
+        {% if p.photo %}
+            <img class="custom-rounded" src="{{ p.photo.url }}" alt="{{ p.title }}">
+        {% endif %}
+
+        <div class=" align-self-start col-9" >
+            <h4>{{ p.title }}</h4>
+            <p class="text-end text-sm">Дата: {{p.updated_at|date:"d-m-Y"}}</p>
+            <p>Категория: {{p.programming_language}}</p>
+            <hr>
+            <p>{{ p.content|slice:":300" }}</p><br>
+            <div class="d-flex align-items-center justify-content-center">
+                <a href="{{ p.get_absolute_url }}"><button class="btn btn-warning">Читать историю</button></a>
+            </div>
+        </div>
+    </div><br>
+    {% endfor %}
+{% endblock %}
+
